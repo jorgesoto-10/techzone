@@ -1,3 +1,11 @@
-target
+target/
+.git/
+.idea/
+.vscode/
 .env
+.env.*
 *.log
+
+# Mantener la configuración local fuera de la imagen
+src/main/resources/application.properties
+src/test/
