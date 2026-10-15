@@ -1,0 +1,27 @@
+# Variables de entorno
+.env
+**/.env
+.env.*
+**/.env.*
+!.env.example
+!**/.env.example
+
+# Configuración local con contraseña de MySQL y clave JWT
+backend/src/main/resources/application.properties
+
+# Dependencias y compilación
+**/target/
+**/node_modules/
+**/dist/
+
+# Registros
+*.log
+
+# Editores
+.idea/
+.vscode/
+*.iml
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

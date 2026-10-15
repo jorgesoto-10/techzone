@@ -1,0 +1,376 @@
+/* =====================
+   ESTILOS DE TECHZONE
+   ===================== */
+/* El padding-top de 100px (altura del navbar fijo) se aplica solo a las
+   páginas de la tienda vía .tienda-contenido (ver TiendaLayout.jsx), no al
+   panel admin, que tiene su propio layout con sidebar. */
+.tienda-contenido {
+  padding-top: 100px;
+}
+
+/* Fondo negro de navbar */
+.navbar {
+  background-color: #000 !important;
+}
+
+/* Letras blancas del navbar */
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: white !important;
+  font-weight: 500;
+}
+
+/* Efecto dorado al pasar el mouse */
+.navbar .nav-link:hover {
+  color: #ffc107 !important;
+}
+
+/* Ícono del carrito en blanco */
+.navbar img.carrito {
+  filter: brightness(0) invert(1);
+}
+
+/* Opcional: mejorar el estilo del input de búsqueda */
+.form-control {
+  border-radius: 20px;
+  padding-left: 15px;
+}
+
+.btn-warning {
+  font-weight: 600;
+}
+
+/* =====================
+   CARRUSEL PRINCIPAL
+   ===================== */
+
+/* Contenedor del carrusel centrado y con ancho controlado */
+#carouselTechzone {
+  width: 80%;
+  /* ancho del 80% de la pantalla */
+  margin: 30px auto;
+  /* centrado horizontal */
+  border-radius: 30px;
+  /* bordes suaves opcionales */
+  overflow: hidden;
+  /* evita que las imágenes se salgan */
+}
+
+/* Imágenes del carrusel */
+#carouselTechzone .carousel-item img {
+  height: 400px;
+  /* altura fija, puedes bajarla si es necesario */
+  object-fit: cover;
+  /* mantiene proporciones */
+  object-position: center;
+  border-radius: 10px;
+  /* coincide con el borde del contenedor */
+}
+
+/* =====================
+   NUEVOS INGRESOS
+   ===================== */
+
+section h2 {
+  color: #000;
+}
+
+.card {
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  height: 150px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+/* Texto de descripción truncado (máx. 2 líneas con puntos suspensivos) */
+.descripcion {
+  font-size: 0.9rem;
+  height: 40px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* para navegadores basados en WebKit (Chrome, Edge, Safari) */
+  line-clamp: 2;
+  /* propiedad estándar moderna */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  color: #333;
+}
+
+/* Botón */
+.btn-primary {
+  background-color: #6f42c1;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #5a32a3;
+}
+
+/* =====================
+   PERSONALIZA TU PC
+   ===================== */
+.personaliza {
+  background-image: url("/Imagenes/INICIO/fondo-personaliza.png");
+  background-size: contain;
+  /* muestra toda la imagen completa */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #b3e0ff;
+  /* color de fondo que combina con tu imagen */
+  width: 80%;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  text-align: center;
+}
+
+/* Contenido centrado sin fondo */
+.personaliza .contenido {
+  background: none;
+}
+
+/* Título */
+.personaliza h2 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Texto */
+.personaliza p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Botón */
+.personaliza .btn img {
+  vertical-align: middle;
+}
+
+/* Versión responsive (para pantallas pequeñas) */
+@media (max-width: 768px) {
+  .personaliza {
+    width: 95%;
+    height: 200px;
+    background-size: contain;
+  }
+
+  .personaliza h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* =====================
+   COMPUTADORAS PRE-CONFIGURADAS
+   ===================== */
+.preconfiguradas {
+  /* Degradado de negro a gris claro/blanco */
+  background: linear-gradient(to bottom, #1c1c1c 0%, #2e2e2e 40%, #f2f2f2 100%);
+  color: #fff;
+  padding: 60px 0;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Título principal en blanco */
+.preconfiguradas h2 {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Subtítulo en gris claro */
+.preconfiguradas p {
+  color: #dcdcdc;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+/* Tarjetas de configuración */
+.card-config {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 550px;
+  color: white;
+  border: none;
+  padding: 0; /* elimina cualquier margen interno */
+  margin: 0; /* elimina márgenes entre tarjetas */
+}
+
+/* Imagen ocupa todo el fondo */
+.card-config img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* llena todo el espacio sin deformar */
+  z-index: 0;
+  filter: brightness(0.6);
+  /* mantiene el contraste del texto */
+  transition: transform 2s ease;
+}
+
+/* Efecto zoom al pasar el mouse */
+.card-config:hover img {
+  transform: scale(1.2);
+}
+
+/* Contenido sobre la imagen */
+.card-config .card-img-overlay {
+  position: relative;
+  z-index: 1;
+  background: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+/* Título dentro de la tarjeta */
+.card-config h5 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+/* Descripción */
+.card-config p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Botón */
+.card-config button {
+  font-weight: 600;
+  color: #000;
+}
+
+/* =====================
+   PREGUNTAS FRECUENTES
+   ===================== */
+.preguntas {
+  background-color: #b3d9ff;
+}
+
+.preguntas h2 {
+  color: #222;
+  font-weight: 700;
+}
+
+.tarjeta {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Ícono circular */
+.icono {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px auto;
+}
+
+/* Íconos SVG o PNG blancos */
+.icono img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) invert(1);
+  /* los mantiene blancos */
+}
+
+/* Textos */
+.tarjeta h5 {
+  font-weight: 700;
+  margin-top: 10px;
+  color: #222;
+}
+
+.tarjeta p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* =====================
+   FOOTER TECHZONE
+   ===================== */
+.footer {
+  background-color: #111;
+  color: #fff;
+}
+
+.footer h6 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer ul li {
+  margin-bottom: 6px;
+}
+
+.footer ul li a:hover {
+  color: #ffc107;
+}
+
+/* Íconos sociales */
+.footer .social-icons img {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.footer .social-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Línea divisoria */
+.footer hr {
+  border-color: #333;
+}
+
+/* Texto final */
+.footer .text-center {
+  color: #ccc;
+}
+
+/* ===== Ajustes propios de la versión React ===== */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.modal.d-block {
+  overflow-y: auto;
+}
+
+/* Páginas que no son la Home (login, admin, carrito) no usan el padding-top
+   del navbar fijo de la tienda, así que los layouts internos lo controlan. */
