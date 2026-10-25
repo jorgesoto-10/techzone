@@ -1050,3 +1050,19 @@ a:focus-visible {
   right: 0;
   margin-top: 0;
 }
+
+/* Navbar negro de la tienda */
+.navbar {
+  background: #000000 !important;
+}
+
+/* El navbar sticky ya ocupa su espacio en la página */
+.tienda-contenido {
+  padding-top: 0;
+  display: flow-root;
+}
+
+/* Separación entre el navbar y el carrusel */
+.tienda-contenido #carouselTechzone {
+  margin-top: 24px !important;
+}
