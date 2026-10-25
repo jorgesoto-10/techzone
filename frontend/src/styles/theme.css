@@ -1066,3 +1066,254 @@ a:focus-visible {
 .tienda-contenido #carouselTechzone {
   margin-top: 24px !important;
 }
+
+/* Notificaciones del administrador */
+
+.tz-notificaciones {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.tz-notificaciones-boton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 13px;
+  background: #fff;
+  color: #334155;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.tz-notificaciones-boton:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.tz-notificaciones-boton:focus-visible,
+.tz-notificaciones-item:focus-visible,
+.tz-notificaciones-cerrar:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+.tz-notificaciones-contador {
+  position: absolute;
+  top: -5px;
+  right: -7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 21px;
+  height: 21px;
+  padding: 0 5px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.tz-notificaciones-panel {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  z-index: 1080;
+  width: 390px;
+  max-width: calc(100vw - 24px);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #fff;
+  color: #0f172a;
+  box-shadow: 0 20px 55px rgb(15 23 42 / 16%);
+}
+
+.tz-notificaciones-cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 20px 12px;
+}
+
+.tz-notificaciones-cabecera h2 {
+  margin: 0 0 5px;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.tz-notificaciones-cabecera > div > span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.tz-notificaciones-cerrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 23px;
+  line-height: 1;
+}
+
+.tz-notificaciones-conexion {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 20px 15px;
+  border-bottom: 1px solid #eef2f7;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.tz-notificaciones-punto,
+.tz-notificaciones-indicador {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+}
+
+.tz-notificaciones-punto.activo {
+  background: #16a34a;
+}
+
+.tz-notificaciones-lista {
+  max-height: min(440px, 55vh);
+  overflow-y: auto;
+}
+
+.tz-notificaciones-item {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  border: 0;
+  border-bottom: 1px solid #eef2f7;
+  background: #fff;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  white-space: normal;
+  transition: background 0.2s;
+}
+
+.tz-notificaciones-item.sin-leer {
+  background: #eff6ff;
+}
+
+.tz-notificaciones-item:hover {
+  background: #e8f0fc;
+}
+
+.tz-notificaciones-item:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.tz-notificaciones-item-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tz-notificaciones-item-cabecera strong {
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.tz-notificaciones-indicador {
+  background: #2563eb;
+}
+
+.tz-notificaciones-mensaje {
+  display: block;
+  margin-top: 6px;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.tz-notificaciones-fecha {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.tz-notificaciones-fecha > span {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.tz-notificaciones-vacio {
+  padding: 36px 20px;
+  text-align: center;
+}
+
+.tz-notificaciones-vacio strong {
+  font-size: 13px;
+}
+
+.tz-notificaciones-vacio p {
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.tz-notificaciones-error {
+  padding: 12px 20px;
+  background: #fff1f2;
+  color: #be123c;
+  font-size: 12px;
+}
+
+.tz-notificaciones-error button {
+  display: block;
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.tz-notificaciones-pie {
+  padding: 12px 16px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 11px;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .tz-notificaciones-panel {
+    position: fixed;
+    top: 80px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    max-width: none;
+  }
+}

@@ -26,7 +26,8 @@ public class SecurityConfig {
 
   @Bean
   UrlBasedCorsConfigurationSource corsConfigurationSource(
-    @Value("${app.cors.origin:http://localhost:5173}") String origins
+    @Value("${app.cors.origin:http://localhost:5173}")
+    String origins
   ) {
     CorsConfiguration config = new CorsConfiguration();
 
@@ -38,19 +39,29 @@ public class SecurityConfig {
     );
 
     config.setAllowedMethods(
-      List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
+      List.of(
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "OPTIONS"
+      )
     );
 
     config.setAllowedHeaders(
       List.of("Authorization", "Content-Type")
     );
 
+    config.setAllowCredentials(true);
     config.setMaxAge(3600L);
 
     UrlBasedCorsConfigurationSource source =
       new UrlBasedCorsConfigurationSource();
 
-    source.registerCorsConfiguration("/**", config);
+    source.registerCorsConfiguration(
+      "/**",
+      config
+    );
 
     return source;
   }
@@ -65,13 +76,16 @@ public class SecurityConfig {
     return http
       .csrf(c -> c.disable())
 
-      // Usar explícitamente nuestra configuración CORS.
       .cors(c ->
-        c.configurationSource(corsConfigurationSource)
+        c.configurationSource(
+          corsConfigurationSource
+        )
       )
 
       .sessionManagement(s ->
-        s.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        s.sessionCreationPolicy(
+          SessionCreationPolicy.STATELESS
+        )
       )
 
       .authorizeHttpRequests(a ->
@@ -85,6 +99,14 @@ public class SecurityConfig {
             "/swagger-ui.html",
             "/v3/api-docs/**",
             "/error"
+          )
+          .permitAll()
+
+          // Negociación y transportes de SockJS.
+          // El JWT y el rol se validan en STOMP.
+          .requestMatchers(
+            "/api/ws",
+            "/api/ws/**"
           )
           .permitAll()
 
@@ -108,21 +130,33 @@ public class SecurityConfig {
 
       .exceptionHandling(e ->
         e
-          .authenticationEntryPoint((request, response, exception) -> {
-            response.setStatus(401);
-            response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write(
-              "{\"mensaje\":\"Inicia sesión para continuar\"}"
-            );
-          })
+          .authenticationEntryPoint(
+            (request, response, exception) -> {
+              response.setStatus(401);
 
-          .accessDeniedHandler((request, response, exception) -> {
-            response.setStatus(403);
-            response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write(
-              "{\"mensaje\":\"No tienes permiso para esta operación\"}"
-            );
-          })
+              response.setContentType(
+                "application/json;charset=UTF-8"
+              );
+
+              response.getWriter().write(
+                "{\"mensaje\":\"Inicia sesión para continuar\"}"
+              );
+            }
+          )
+
+          .accessDeniedHandler(
+            (request, response, exception) -> {
+              response.setStatus(403);
+
+              response.setContentType(
+                "application/json;charset=UTF-8"
+              );
+
+              response.getWriter().write(
+                "{\"mensaje\":\"No tienes permiso para esta operación\"}"
+              );
+            }
+          )
       )
 
       .addFilterBefore(

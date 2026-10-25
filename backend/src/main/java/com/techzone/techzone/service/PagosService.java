@@ -27,6 +27,8 @@ public class PagosService {
   private final ProductoRepository productos;
   private final VentasService compras;
   private final CuentasService cuentas;
+  private final NotificacionesService notificaciones;
+
 
   public PagosService(
     VentaRepository v,
@@ -34,7 +36,8 @@ public class PagosService {
     DetalleVentaRepository d,
     ProductoRepository pr,
     VentasService c,
-    CuentasService u
+    CuentasService u,
+    NotificacionesService notificaciones
   ) {
     ventas = v;
     pagos = p;
@@ -42,6 +45,7 @@ public class PagosService {
     productos = pr;
     compras = c;
     cuentas = u;
+    this.notificaciones = notificaciones;
   }
 
   private ResponseStatusException error(
@@ -335,6 +339,8 @@ public class PagosService {
     p.setComprobante(bytes);
 
     pagos.save(p);
+
+    notificaciones.registrarPedido(v);
 
     return resumen(v);
   }
